@@ -4,6 +4,10 @@ Shuffle = window.shuffle
 mkvid = ->
 	vid = document.createElement("div")
 	vid.className = "vid"
+	# flag = document.createElement("div")
+	# flag.className = "flag"
+	# flag.textContent = "✓"
+	# vid.appendChild(flag)
 	document.querySelector(".vid-grid").appendChild(vid)
 
 for i in [0..10]
@@ -23,7 +27,6 @@ $grid.click ".vid", (e)->
 	$vid = $(e.target).closest(".vid")
 	
 	$vid.addClass("flagged")
-	$vid.append("<div class='flag'>✓</div>")
 	
 	setTimeout ->
 		shuffle.remove($vid)

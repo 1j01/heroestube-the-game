@@ -73,10 +73,9 @@ header,
 	color: white;
 	cursor: pointer;
 }
-/*.vid.flagged {*/
-/*	background: #D70D1B;*/
-/*}*/
-.vid .flag {
+.vid.flagged::after {
+	display: block;
+	content: "✓";
 	background: #D70D1B;
 	color: white;
 	font-size: 100px;
@@ -85,6 +84,15 @@ header,
 	line-height: 100%;
 	line-height: 200px;
 }
+/*.vid .flag {
+	background: #D70D1B;
+	color: white;
+	font-size: 100px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100%;
+	line-height: 200px;
+}*/
 h1 a {
 	color: #2196f3;
 	text-decoration: none;
