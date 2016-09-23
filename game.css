@@ -1,0 +1,46 @@
+
+html, body, .page {
+	height: 100%;
+	font-family: sans-serif;
+}
+body {
+	background: #D70D1B;
+	color: white;
+}
+.page {
+	background: white;
+	color: #333333;
+	max-width: 71em;
+	margin: 50px auto;
+	border-radius: 4px;
+	padding: 40px;
+	overflow: auto;
+}
+.vid {
+	width: 18%;
+	min-width: 250px;
+	height: 200px;
+	margin-bottom: 40px;
+	background: #333333;
+	color: white;
+	cursor: pointer;
+}
+/*.vid.flagged {*/
+/*	background: #D70D1B;*/
+/*}*/
+.vid .flag {
+	background: #D70D1B;
+	color: white;
+	font-size: 100px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100%;
+	line-height: 200px;
+}
+h1 a {
+	color: #2196f3;
+	text-decoration: none;
+}
+h1 .chevron {
+	color: #aaa;
+}
