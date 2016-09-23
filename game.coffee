@@ -61,5 +61,6 @@ $grid.click ".vid", (e)->
 	
 	setTimeout ->
 		if $vid.is ":visible"
-			shuffle.remove($vid)
-	, 2000
+			# shuffle.remove($vid)
+			$vid.addClass("removed")
+	, 2000 + Math.random() * 2000
