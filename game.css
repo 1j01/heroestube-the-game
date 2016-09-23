@@ -76,7 +76,7 @@ header,
 .vid.flagged::after {
 	display: block;
 	content: "✓";
-	background: #D70D1B;
+	/*background: #D70D1B;*/
 	color: white;
 	font-size: 100px;
 	text-align: center;
@@ -93,6 +93,32 @@ header,
 	line-height: 100%;
 	line-height: 200px;
 }*/
+.vid {
+	position: relative;
+	overflow: hidden;
+}
+.ripple {
+	position: absolute;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	margin-top: -10px;
+	margin-left: -10px;
+	z-index: -1;
+	opacity: 0;
+	background: rgba(0,0,0,0.2);
+	transition: all 0.7s ease-out;
+	transition-property: opacity, -webkit-transform;
+	transition-property: transform, opacity;
+	transition-property: transform, opacity, -webkit-transform;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	pointer-events: none;
+}
+.vid .ripple {
+	/*background-color: rgba(244,67,54,0.7);*/
+	background-color: #DB4437;
+}
 h1 a {
 	color: #2196f3;
 	text-decoration: none;
