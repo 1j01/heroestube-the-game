@@ -72,17 +72,35 @@ header,
 	background: #333333;
 	color: white;
 	cursor: pointer;
+	/*transition: opacity 2s ease;*/
+	background-image: url("img/video-icon.png");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 }
 .vid.flagged::before {
 	display: block;
 	content: "✓";
-	/*background: #D70D1B;*/
 	color: white;
 	font-size: 100px;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 100%;
-	line-height: 200px;
+	line-height: 200px; /* = .vid {width}*/
+	opacity: 0;
+	transition: opacity 2s ease;
+}
+.vid.flagged::before {
+	opacity: 1;
+}
+.vid.flagged::after {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	content: "This video has been flagged.";
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	text-align: center;
+	line-height: 2em;
 }
 .vid.removed::after {
 	display: block;
@@ -129,6 +147,9 @@ header,
 .vid .ripple {
 	/*background-color: rgba(244,67,54,0.7);*/
 	background-color: #DB4437;
+}
+.vid.removed .ripple {
+	background-color: #e0e0e0;
 }
 h1 a {
 	color: #2196f3;

@@ -1,25 +1,25 @@
 
 Shuffle = window.shuffle
 
-mkvid = ->
-	vid = document.createElement("div")
-	vid.className = "vid"
-	# flag = document.createElement("div")
-	# flag.className = "flag"
-	# flag.textContent = "✓"
-	# vid.appendChild(flag)
-	document.querySelector(".vid-grid").appendChild(vid)
+make_vid = ->
+	$("<div class='vid'>").appendTo(".vid-grid")
 
-for i in [0..10]
-	mkvid()
+for i in [1..12]
+	make_vid()
 
 $grid = $(".vid-grid")
+
+Shuffle.ShuffleItem.Css.INITIAL.zIndex = "0"
+Shuffle.ShuffleItem.Css.INITIAL.opacity = "0"
+Shuffle.ShuffleItem.Css.VISIBLE.after.zIndex = "2"
+Shuffle.ShuffleItem.Css.VISIBLE.after.opacity = "1"
 
 shuffle = new Shuffle $grid[0],
 	itemSelector: '.vid'
 	speed: 250
 	easing: 'ease'
 	gutterWidth: 40
+
 
 points = 0
 
@@ -44,7 +44,6 @@ $grid.on "mousedown", ".vid", (e)->
 		return if $ripple.hasClass("canceled")
 		$ripple.css
 			transform: "scale(15)"
-			# background: "#DB4437"
 			opacity: 1
 		$vid.off "mouseleave"
 	
@@ -60,7 +59,11 @@ $grid.click ".vid", (e)->
 	$vid.addClass("flagged")
 	
 	setTimeout ->
-		if $vid.is ":visible"
-			# shuffle.remove($vid)
+		if $vid.is ":visible:not(.removed)"
 			$vid.addClass("removed")
+			setTimeout ->
+				$new_vid = make_vid().insertAfter($vid)
+				shuffle.remove($vid)
+				shuffle.add($new_vid)
+			, 1000
 	, 2000 + Math.random() * 2000
